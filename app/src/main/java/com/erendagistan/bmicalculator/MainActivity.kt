@@ -1,7 +1,10 @@
 package com.erendagistan.bmicalculator
 
+import android.content.Intent
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -50,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         binding.tvIndex.text=bmi.toString()
         binding.tvInfo.text="(Normal range is 18.5-24.9)"
 
-        
+
 
         var resultText=""
         var color = 0
@@ -76,7 +79,15 @@ class MainActivity : AppCompatActivity() {
         binding.tvResult.setTextColor(ContextCompat.getColor(this,color))
         binding.tvResult.text=resultText
 
+        binding.btnShowDetails.visibility=View.VISIBLE
+        binding.btnShowDetails.setOnClickListener {
+            val intent = Intent(this,DietDetails::class.java)
+            intent.putExtra("result",resultText)
+            intent.putExtra("color",color)
+            startActivity(intent)
 
+        //Toast.makeText(this,"SHOW DETO",Toast.LENGTH_LONG).show()
+        }
     }
 
 
