@@ -17,9 +17,6 @@ class MainActivity : AppCompatActivity() {
         binding= ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-//        val weightText=findViewById<EditText>(R.id.etWeight)
-//        val heightText=findViewById<EditText>(R.id.etHeight)
-//        val calculateBtn=findViewById<Button>(R.id.calculateBtn)
 
         binding.calculateBtn.setOnClickListener {
             val weight=binding.etWeight.text.toString()
@@ -49,16 +46,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun displayResult(bmi:Float){
-//        val resultIndex=findViewById<TextView>(R.id.tvIndex)
-//        val resultDescription=findViewById<TextView>(R.id.tvResult)
-//        val resultInfo=findViewById<TextView>(R.id.tvInfo)
 
         binding.tvIndex.text=bmi.toString()
         binding.tvInfo.text="(Normal range is 18.5-24.9)"
 
-
-        //resultIndex.text=bmi.toString()
-        //resultInfo.text="(Normal range is 18.5-24.9)"
+        
 
         var resultText=""
         var color = 0
